@@ -8,6 +8,10 @@
   const total = slides.length;
   let current = readHash();
   let notesVisible = false;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchStartTime = 0;
+  let ignoreClickUntil = 0;
 
   function readHash() {
     const raw = window.location.hash.replace("#", "");
@@ -102,14 +106,64 @@
       toggleNotes();
     }
   });
-  window.addEventListener("click", () => {
-  event.preventDefault();
-  next();
-  })
-window.addEventListener("contextmenu", (event) => {
-  event.preventDefault(); // 기본 우클릭 메뉴 막기
-  previous();
-});
+
+  window.addEventListener("click", (event) => {
+    if (Date.now() < ignoreClickUntil) {
+      event.preventDefault();
+      return;
+    }
+    event.preventDefault();
+    next();
+  });
+
+  window.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    previous();
+  });
+
+  window.addEventListener("touchstart", (event) => {
+    if (event.touches.length !== 1) {
+      return;
+    }
+    const touch = event.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    touchStartTime = Date.now();
+  }, { passive: true });
+
+  window.addEventListener("touchend", (event) => {
+    const touch = event.changedTouches[0];
+    if (!touch) {
+      return;
+    }
+
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+    const elapsed = Date.now() - touchStartTime;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+    const isHorizontalSwipe = absX >= 48 && absX > absY * 1.4;
+    const isTap = absX < 12 && absY < 12 && elapsed < 420;
+
+    if (!isHorizontalSwipe && !isTap) {
+      return;
+    }
+
+    event.preventDefault();
+    ignoreClickUntil = Date.now() + 500;
+
+    if (isHorizontalSwipe) {
+      if (deltaX < 0) {
+        next();
+      } else {
+        previous();
+      }
+      return;
+    }
+
+    next();
+  }, { passive: false });
+
   window.addEventListener("hashchange", () => {
     goTo(readHash(), false);
   });
