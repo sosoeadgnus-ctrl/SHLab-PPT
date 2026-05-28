@@ -102,7 +102,14 @@
       toggleNotes();
     }
   });
-
+  window.addEventListener("click", () => {
+  event.preventDefault();
+  next();
+  })
+window.addEventListener("contextmenu", (event) => {
+  event.preventDefault(); // 기본 우클릭 메뉴 막기
+  previous();
+});
   window.addEventListener("hashchange", () => {
     goTo(readHash(), false);
   });
