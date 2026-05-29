@@ -401,37 +401,85 @@ a {
 
 .office-view-layout {
   display: grid;
-  grid-template-columns: 1fr 330px;
-  gap: 24px;
-  margin-top: 18px;
+  grid-template-columns: 1.08fr 1fr;
+  grid-template-rows: 356px 96px;
+  gap: 16px;
+  margin-top: 8px;
 }
 
-.office-view-image {
-  height: 440px;
+.office-hero-shot,
+.office-photo-grid figure {
+  position: relative;
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--sh-gray-200);
   background: #fff;
 }
 
-.office-view-image img {
+.office-hero-shot {
+  min-height: 0;
+}
+
+.office-hero-shot img,
+.office-photo-grid img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+}
+
+.office-hero-shot figcaption,
+.office-photo-grid figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 10px 16px;
+  background: linear-gradient(180deg, transparent, rgba(17, 24, 39, 0.9));
+  color: #fff;
+}
+
+.office-hero-shot figcaption strong {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.office-hero-shot figcaption span {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.office-photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  min-height: 0;
+}
+
+.office-photo-grid figcaption {
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 10px;
+  font-size: 14px;
+  font-weight: 900;
 }
 
 .office-view-points {
   display: grid;
-  height: 440px;
-  grid-template-rows: repeat(3, 1fr);
-  gap: 14px;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
 
 .office-view-points div {
   position: relative;
   min-height: 0;
-  padding: 24px 22px 18px 64px;
+  padding: 16px 20px 14px 60px;
   border: 1px solid var(--sh-gray-200);
   border-left: 5px solid var(--sh-red);
   background: #fff;
@@ -439,24 +487,24 @@ a {
 
 .office-view-points .list-icon {
   position: absolute;
-  left: 22px;
-  top: 26px;
-  width: 26px;
-  height: 26px;
+  left: 21px;
+  top: 18px;
+  width: 25px;
+  height: 25px;
 }
 
 .office-view-points strong {
   display: block;
   color: var(--sh-dark);
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 900;
 }
 
 .office-view-points p {
-  margin: 14px 0 0;
+  margin: 8px 0 0;
   color: var(--sh-gray-500);
-  font-size: 16px;
-  line-height: 1.45;
+  font-size: 14px;
+  line-height: 1.35;
 }
 
 .welfare-grid {
@@ -820,6 +868,58 @@ a {
   color: var(--sh-gray-700);
   font-size: 17px;
   font-weight: 800;
+}
+
+.collaboration-layout {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  gap: 28px;
+  margin-top: 18px;
+  align-items: stretch;
+}
+
+.collaboration-news {
+  height: 374px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--sh-gray-200);
+  background: #fff;
+}
+
+.collaboration-news img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.collaboration-facts {
+  height: 374px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.collaboration-facts-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.collaboration-facts-title .section-icon {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+}
+
+.collaboration-facts-title h3 {
+  margin: 0;
+}
+
+.collaboration-facts .check-list li {
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .strength-layout {
@@ -1196,48 +1296,103 @@ a {
 
 .skill-board {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-top: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 0;
 }
 
 .skill-board div {
   position: relative;
-  min-height: 330px;
-  padding: 76px 21px 26px;
+  min-height: 108px;
+  padding: 18px 18px 16px 74px;
 }
 
 .skill-icon {
   position: absolute;
-  left: 21px;
-  top: 24px;
-  width: 38px;
-  height: 38px;
+  left: 20px;
+  top: 22px;
+  width: 34px;
+  height: 34px;
   color: var(--sh-red);
 }
 
 .skill-board span {
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   color: var(--sh-red);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 900;
 }
 
 .skill-board strong {
   display: block;
-  min-height: 86px;
+  min-height: 0;
   color: var(--sh-dark);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.25;
 }
 
 .skill-board p {
-  margin: 22px 0 0;
+  margin: 10px 0 0;
   color: var(--sh-gray-500);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.student-layout {
+  display: grid;
+  grid-template-columns: 470px 1fr;
+  column-gap: 28px;
+  row-gap: 14px;
+  align-items: stretch;
+}
+
+.student-visual {
+  height: 430px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--sh-gray-200);
+  background: #fff;
+}
+
+.student-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.student-skill-panel {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 14px;
+  min-height: 430px;
+}
+
+.student-takeaway {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 14px;
+  align-items: center;
+  min-height: 74px;
+  padding: 17px 24px;
+  border-left: 6px solid var(--sh-red);
+  background: var(--sh-dark);
+  color: #fff;
+}
+
+.student-takeaway strong {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.student-takeaway span {
+  color: rgba(255, 255, 255, 0.78);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .role-table {
