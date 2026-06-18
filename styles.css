@@ -525,6 +525,111 @@ a {
   line-height: 1.35;
 }
 
+.scalability-layout {
+  display: grid;
+  grid-template-columns: 382px 1fr;
+  gap: 24px;
+  margin-top: 12px;
+}
+
+.scalability-core {
+  min-height: 348px;
+  padding: 32px 30px 26px;
+  background: var(--sh-dark);
+  color: #fff;
+}
+
+.scalability-core strong {
+  display: block;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.18;
+}
+
+.scalability-core p {
+  margin: 22px 0 0;
+  color: #d7dbe2;
+  font-size: 17px;
+  line-height: 1.52;
+}
+
+.tech-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.tech-chip-row span {
+  display: inline-grid;
+  min-height: 30px;
+  place-items: center;
+  padding: 0 11px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.scalability-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.scalability-cards div {
+  position: relative;
+  min-height: 348px;
+  padding: 25px 22px 20px;
+  border: 1px solid var(--sh-gray-200);
+  border-top: 6px solid var(--sh-red);
+  background: #fff;
+}
+
+.scalability-cards b {
+  display: block;
+  margin-bottom: 58px;
+  color: var(--sh-red);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.scalability-cards strong {
+  display: block;
+  min-height: 68px;
+  color: var(--sh-dark);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.24;
+}
+
+.scalability-cards p {
+  margin: 16px 0 0;
+  color: var(--sh-gray-500);
+  font-size: 15px;
+  line-height: 1.48;
+}
+
+.scalability-strip {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 16px 22px;
+  border-left: 6px solid var(--sh-red);
+  background: var(--blue-gray);
+  color: var(--sh-gray-700);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.scalability-source-line {
+  margin-top: 8px;
+  font-size: 11px;
+}
+
 .welfare-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
